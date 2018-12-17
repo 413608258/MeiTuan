@@ -10,6 +10,9 @@ import {StyleSheet, View, Text, Image} from 'react-native';
  **/
 
 class OrderScene extends Component {
+    static navigationOptions = {
+        title: `OrderScene...`,
+    }
     constructor(props) {
         super(props);
         this.state = {

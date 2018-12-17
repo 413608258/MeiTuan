@@ -12,7 +12,6 @@ import AntDesign from "react-native-vector-icons/AntDesign";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-
 /**
  * @ClassName : RootScene
  * @Description :
@@ -24,24 +23,42 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const Tab = createBottomTabNavigator(
     {
         Home: {
-                screen: HomeScene,
-                navigationOptions: {
-                    title: "团购",
-                    //headerTitle: "aaaa",
-                    tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
-                        // 这里使用了react-native-vector-icons, 不熟悉的请看上方连接
-                        <AntDesign
-                            name= {'home'}
-                            size= {25}
-                            color= {tintColor}
-                        />
-                    )
-                }
+            //screen: HomeScene,
+            screen: createStackNavigator({
+                HomeScene: {
+                    screen: HomeScene,
+                    navigationOptions: {
+                       //header: null,
+                    }
+                },
+            }),
+            navigationOptions: {
+                title: "团购",
+                tabBarLabel: "团购",
+                //headerTitle: "aaaa",
+                tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
+                    // 这里使用了react-native-vector-icons, 不熟悉的请看上方连接
+                    <AntDesign
+                        name= {'home'}
+                        size= {25}
+                        color= {tintColor}
+                    />
+                )
+            }
         },
         Nearby: {
-            screen: NearbyScene,
+            //screen: NearbyScene,
+            screen: createStackNavigator({
+                NearbyScene: {
+                    screen: NearbyScene,
+                    navigationOptions: {
+                        //header: null,
+                    }
+                },
+            }),
             navigationOptions: {
                 title: "附近",
+                tabBarLabel: "附近",
                 tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
                     // 这里使用了react-native-vector-icons, 不熟悉的请看上方连接
                     <SimpleLineIcons
@@ -53,9 +70,18 @@ const Tab = createBottomTabNavigator(
             }
         },
         Order: {
-            screen: OrderScene,
+            //screen: OrderScene,
+            screen: createStackNavigator({
+                OrderScene: {
+                    screen: OrderScene,
+                    navigationOptions: {
+                        //header: null,
+                    }
+                },
+            }),
             navigationOptions: {
                 title: "订单",
+                tabBarLabel: "订单",
                 tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
                     // 这里使用了react-native-vector-icons, 不熟悉的请看上方连接
                     //<FontAwesome
@@ -72,9 +98,18 @@ const Tab = createBottomTabNavigator(
             }
         },
         Mine: {
-            screen: MineScene,
+            //screen: MineScene,
+            screen: createStackNavigator({
+                MineScene: {
+                    screen: MineScene,
+                    navigationOptions: {
+                        //header: null,
+                    }
+                },
+            }),
             navigationOptions: {
                 title: "我的",
+                tabBarLabel: "我的",
                 tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
                     // 这里使用了react-native-vector-icons, 不熟悉的请看上方连接
                     //<EvilIcons/>
@@ -83,8 +118,6 @@ const Tab = createBottomTabNavigator(
             }
         },
     }, {
-
-        headerMode: 'none',
         initialRouteName: 'Home', // 设置默认的页面
 
         lazy: true, // 是否在app打开的时候将底部标签栏全部加载

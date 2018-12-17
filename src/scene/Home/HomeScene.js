@@ -11,10 +11,10 @@ import Colors from "../../Colors";
  **/
 
 class HomeScene extends Component {
-    static navigationOptions = {
+    /*static navigationOptions = {
         title: "HomeScene...",
-    }
-    /*static navigationOptions = ()=>{
+    }*/
+   /* static navigationOptions = ()=>{
         return {
             headerStyle: {backgroundColor: Colors.primary},
             headerTitle: (
@@ -29,19 +29,19 @@ class HomeScene extends Component {
             ),
         }
     }*/
-    /*static navigationOptions = ()=>({
+    static navigationOptions = ()=>({
         headerStyle: {backgroundColor: Colors.primary},
         headerTitle: (
             <TouchableOpacity>
                 <AntDesign
                     name= {'search1'}
                     size= {25}
-                    color= {tintColor}
+                    color= {'#FFFFFF'}
                 />
                 <Text>搜索</Text>
             </TouchableOpacity>
         ),
-    })*/
+    })
     constructor(props){
         super(props);
         this.state = {

@@ -1,10 +1,12 @@
-import {createStackNavigator,createAppContainer} from 'react-navigation';
+import {createStackNavigator, createAppContainer, createBottomTabNavigator} from 'react-navigation';
 
 import HomeScene from "./scene/Home/HomeScene";
 import NearbyScene from "./scene/Nearby/NearbyScene";
 import OrderScene from "./scene/Order/OrderScene";
 import MineScene from "./scene/Mine/MineScene";
 import RootScene from "./RootScene";
+import Colors from "./Colors";
+import React from "react";
 
 const AppNavigator1 = createStackNavigator({
     Index: {
@@ -28,8 +30,8 @@ const AppNavigator1 = createStackNavigator({
         screen: MineScene,
     },
 },{
-    //initialRouteName:'Index',
-    /* 主屏幕的标题配置现在在这里 */
+    /*initialRouteName:'Index',
+    /!* 主屏幕的标题配置现在在这里 *!/
     navigationOptions: {
         //header: null,
         gesturesEnabled: true,
@@ -40,7 +42,12 @@ const AppNavigator1 = createStackNavigator({
         headerTitleStyle: {
             fontWeight: 'bold',
         },
+    },*/
+    navigationOptions:{
+        header:null,
+        gesturesEnabled: true
     },
+    initialRouteName:'Index',
 });
 
 const Rooter = createAppContainer(AppNavigator1);

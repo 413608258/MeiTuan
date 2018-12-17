@@ -10,6 +10,9 @@ import {StyleSheet, View, Text, Image} from 'react-native';
  **/
 
 class NearbyScene extends Component {
+    static navigationOptions = {
+        title: `NearbyScene...`,
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -22,9 +25,9 @@ class NearbyScene extends Component {
 
     render() {
         return (
-                <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-                    <Text>NearbyScene</Text>
-                </View>
+            <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
+                <Text>NearbyScene</Text>
+            </View>
         );
     }
 

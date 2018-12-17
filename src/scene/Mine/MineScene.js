@@ -10,10 +10,13 @@ import {StyleSheet, View, Text, Image} from 'react-native';
  **/
 
 class MineScene extends Component {
+    static navigationOptions = {
+        title: `MineScene...`,
+    }
     constructor(props) {
         super(props);
         this.state = {
-            title: MineScene,
+            title: "MineScene",
         };
     }
 
