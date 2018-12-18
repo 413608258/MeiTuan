@@ -5,7 +5,7 @@ import NearbyScene from "./scene/Nearby/NearbyScene";
 import OrderScene from "./scene/Order/OrderScene";
 import MineScene from "./scene/Mine/MineScene";
 import RootScene from "./RootScene";
-import Colors from "./Colors";
+import Colors from "./common/Colors";
 import React from "react";
 
 const AppNavigator1 = createStackNavigator({
@@ -17,6 +17,7 @@ const AppNavigator1 = createStackNavigator({
             headerTitleStyle:{flex: 1,textAlign:'center'}
         },
     },
+    GroupPurchase: {screen: GroupPurchaseScene},
     Home: {
         screen: HomeScene,
     },

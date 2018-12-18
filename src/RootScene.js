@@ -5,13 +5,13 @@ import HomeScene from "./scene/Home/HomeScene";
 import NearbyScene from "./scene/Nearby/NearbyScene";
 import OrderScene from "./scene/Order/OrderScene";
 import MineScene from "./scene/Mine/MineScene";
-import Colors from "./Colors";
+import Colors from "./common/Colors";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import EvilIcons from "react-native-vector-icons/EvilIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import TabBarItem from "./scene/widget/TabBarItem";
+import TabBarItem from "./widget/TabBarItem";
 
 /**
  * @ClassName : RootScene

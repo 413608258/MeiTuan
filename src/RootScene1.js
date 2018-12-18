@@ -5,7 +5,7 @@ import HomeScene from "./scene/Home/HomeScene";
 import NearbyScene from "./scene/Nearby/NearbyScene";
 import OrderScene from "./scene/Order/OrderScene";
 import MineScene from "./scene/Mine/MineScene";
-import Colors from "./Colors";
+import Colors from "./common/Colors";
 
 /**
  * @ClassName : RootScene
