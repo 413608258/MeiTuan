@@ -11,6 +11,7 @@ import EvilIcons from "react-native-vector-icons/EvilIcons";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import TabBarItem from "./scene/widget/TabBarItem";
 
 /**
  * @ClassName : RootScene
@@ -35,13 +36,20 @@ const Tab = createBottomTabNavigator(
             navigationOptions: {
                 title: "团购",
                 tabBarLabel: "团购",
-                //headerTitle: "aaaa",
-                tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
+                /*tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
                     // 这里使用了react-native-vector-icons, 不熟悉的请看上方连接
                     <AntDesign
                         name= {'home'}
                         size= {25}
                         color= {tintColor}
+                    />
+                )*/
+                tabBarIcon: ({focused, tintColor}) => ( // tabBar显示的图标
+                    <TabBarItem
+                        tintColor = {tintColor}
+                        focused = {focused}
+                        normalImage = {require('./img/tabbar/tabbar_homepage.png')}
+                        selectedImage = {require('./img/tabbar/tabbar_homepage_selected.png')}
                     />
                 )
             }
@@ -59,12 +67,20 @@ const Tab = createBottomTabNavigator(
             navigationOptions: {
                 title: "附近",
                 tabBarLabel: "附近",
-                tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
+                /*tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
                     // 这里使用了react-native-vector-icons, 不熟悉的请看上方连接
                     <SimpleLineIcons
                         name={'location-pin'}
                         size={25}
                         color={tintColor}
+                    />
+                )*/
+                tabBarIcon: ({focused, tintColor}) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./img/tabbar/tabbar_merchant.png')}
+                        selectedImage={require('./img/tabbar/tabbar_merchant_selected.png')}
                     />
                 )
             }
@@ -82,7 +98,7 @@ const Tab = createBottomTabNavigator(
             navigationOptions: {
                 title: "订单",
                 tabBarLabel: "订单",
-                tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
+                /*tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
                     // 这里使用了react-native-vector-icons, 不熟悉的请看上方连接
                     //<FontAwesome
                     //    name={'wpforms'}
@@ -93,6 +109,14 @@ const Tab = createBottomTabNavigator(
                         name={'profile'}
                         size={25}
                         color={tintColor}
+                    />
+                )*/
+                tabBarIcon: ({focused, tintColor}) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./img/tabbar/tabbar_order.png')}
+                        selectedImage={require('./img/tabbar/tabbar_order_selected.png')}
                     />
                 )
             }
@@ -110,10 +134,18 @@ const Tab = createBottomTabNavigator(
             navigationOptions: {
                 title: "我的",
                 tabBarLabel: "我的",
-                tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
+                /*tabBarIcon: ({tintColor}) => ( // tabBar显示的图标
                     // 这里使用了react-native-vector-icons, 不熟悉的请看上方连接
                     //<EvilIcons/>
                     <AntDesign name= {'user'} size= {25} color= {tintColor}/>
+                )*/
+                tabBarIcon: ({focused, tintColor}) => (
+                    <TabBarItem
+                        tintColor={tintColor}
+                        focused={focused}
+                        normalImage={require('./img/tabbar/tabbar_mine.png')}
+                        selectedImage={require('./img/tabbar/tabbar_mine_selected.png')}
+                    />
                 )
             }
         },

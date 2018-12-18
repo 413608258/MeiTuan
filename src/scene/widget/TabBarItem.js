@@ -9,11 +9,11 @@ import {StyleSheet, View, Text, Image} from 'react-native';
  * @since : 2018-12-14
  **/
 
-class TabBarItme extends Component {
+class TabBarItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: TabBarItme,
+            title: TabBarItem,
         };
     }
 
@@ -21,11 +21,12 @@ class TabBarItme extends Component {
     }
 
     render() {
-        let {normalImage, selectedImage, focused, tintColor} = this.props;
+        //let {normalImage, selectedImage, focused, tintColor} = this.props;
+        let selectedImage = this.props.selectedImage ? this.props.selectedImage : this.props.normalImage;
         return (
             <Image
-                source={focused ? selectedImage : normalImage}
-                style={{width: 25, height: 25, tintColor: tintColor}}
+                source={this.props.focused ? selectedImage : this.props.normalImage}
+                style={{width: 25, height: 25, tintColor: this.props.tintColor}}
             />
         );
     }
@@ -36,4 +37,4 @@ const styles = StyleSheet.create({
     container: {},
 });
 
-export default TabBarItme;
+export default TabBarItem;

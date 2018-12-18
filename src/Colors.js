@@ -3,6 +3,7 @@ const Colors = {
     transparent: '#00000000',
     black: '#000000',
     white: '#FFFFFF',
+    gray: '#979797',
     darkGray: '#8F8F8F',
     mediumGray: '#CCC',
     lightGray: '#EEEEEE',
@@ -19,14 +20,17 @@ const Colors = {
     darkBlue: '#5099E3',
     cyan: '#37ABF9',
 
-    primary: '#5ef9e2',
+    primary: '#06C1AE',
+    border: '#e0e0e0',
+    paper: '#f3f3f3',
 
     /* 下方是具体组件使用的颜色 */
     titleBar: '#F4511E',
     tabBar: '#EEEEEE',
 
-    inactive: '#8F8F8F',
-    active: '#E92064',
+    inactive: this.gray,
+    active: this.primary,
+
 };
 
 export default Colors
