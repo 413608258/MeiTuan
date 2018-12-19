@@ -1,14 +1,18 @@
 import React from 'react';
 import {
     Dimensions, //用于获取设备屏幕的宽高
-    ActivityIndicator
+    ActivityIndicator,
+    PixelRatio,
+    Platform,
 } from 'react-native';
 
 var Util = {
-    //屏幕尺寸
+    //屏幕尺寸相关
     windowSize: {
         width: Dimensions.get("window").width,
         height: Dimensions.get("window").height,
+        onePixel: 1 / PixelRatio.get(),
+        statusBarHeight: (Platform.OS === 'ios' ? 20 : 0)
     },
     //总投资状态相关定义(Status)
     InvestStatus: {

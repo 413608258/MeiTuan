@@ -7,6 +7,7 @@ import MineScene from "./scene/Mine/MineScene";
 import RootScene from "./RootScene";
 import Colors from "./common/Colors";
 import React from "react";
+import GroupPurchaseScene from "./scene/GroupPurchase/GroupPurchaseScene";
 
 const AppNavigator1 = createStackNavigator({
     Index: {

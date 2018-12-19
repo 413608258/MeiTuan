@@ -21,8 +21,10 @@ const Colors = {
     cyan: '#37ABF9',
 
     primary: '#06C1AE',
-    border: '#e0e0e0',
+    //border: '#e0e0e0',
+    border: '#E92064',
     paper: '#f3f3f3',
+    //paper: '#E92064',
 
     /* 下方是具体组件使用的颜色 */
     titleBar: '#F4511E',
