@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 import {StyleSheet, View, Text, Image, TouchableOpacity, FlatList, StatusBar} from 'react-native';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Colors from "../../common/Colors";
-import {Paragraph} from "../../widget/Text";
+import {Heading3, Paragraph} from "../../widget/Text";
 import NavigationItem from "../../widget/NavigationItem";
 import Util from "../../common/Util";
 import GroupPurchaseCell from "../GroupPurchase/GroupPurchaseCell";
 import api from "../../api";
+import HomeMenuView from "./HomeMenuView";
+import SpacingView from "../../widget/SpacingView";
+import HomeGridView from "./HomeGridView";
 /**
  * @ClassName : HomeScene
  * @Description :
@@ -138,6 +141,9 @@ class HomeScene extends Component {
             //let response = await fetch(api.discount);
             let response = await fetch(url);
             let json = await response.json();
+
+            console.log("discounts: " + JSON.stringify(json));
+
             this.setState({
                 discounts: json.data,
             });
@@ -167,7 +173,13 @@ class HomeScene extends Component {
     renderHeader = ()=>{
         return (
             <View>
-
+                <HomeMenuView menuInfos={api.menuInfo} onMenuSelected={this.onMenuSelected} />
+                <SpacingView />
+                <HomeGridView infos={this.state.discounts} onGridSelected={(this.onGridSelected)} />
+                <SpacingView />
+                <View style={styles.recommendHeader}>
+                    <Heading3>猜你喜欢</Heading3>
+                </View>
             </View>
         );
     }
@@ -207,7 +219,7 @@ class HomeScene extends Component {
                     //在等待加载新数据时将此属性设为true，列表就会显示出一个正在加载的符号
                     refreshing={this.state.refreshing}
                     //头部组件
-                    //ListHeaderComponent={this.renderHeader}
+                    ListHeaderComponent={this.renderHeader}
                 />
             </View>
         );
