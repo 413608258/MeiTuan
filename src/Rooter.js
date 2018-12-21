@@ -8,6 +8,7 @@ import RootScene from "./RootScene";
 import Colors from "./common/Colors";
 import React from "react";
 import GroupPurchaseScene from "./scene/GroupPurchase/GroupPurchaseScene";
+import WebScene from "./widget/WebScene";
 
 const AppNavigator1 = createStackNavigator({
     Index: {
@@ -19,6 +20,7 @@ const AppNavigator1 = createStackNavigator({
         },
     },
     GroupPurchase: {screen: GroupPurchaseScene},
+    Web: {screen: WebScene},
     Home: {
         screen: HomeScene,
     },

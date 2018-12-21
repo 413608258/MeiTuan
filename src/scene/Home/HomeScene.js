@@ -162,8 +162,8 @@ class HomeScene extends Component {
     }
     //行数据“点击”事件
     onCellSelected = (info: Object) => {
-        StatusBar.setBarStyle('default', false)
-        this.props.navigation.navigate('GroupPurchase', {info: info})
+        StatusBar.setBarStyle('default', false);
+        this.props.navigation.navigate('GroupPurchase', {info: info});
     }
 
     keyExtractor = (item: Object, index: number) => {
@@ -184,6 +184,10 @@ class HomeScene extends Component {
         );
     }
 
+    onMenuSelected = (index: number)=>{
+        alert(index);
+    }
+
     onGridSelected = ()=>{
         let discount = this.state.discounts[index];
 
@@ -196,9 +200,6 @@ class HomeScene extends Component {
         }
     }
 
-    onMenuSelected = (index: number)=>{
-        alert(index);
-    }
 
     render() {
         return (
