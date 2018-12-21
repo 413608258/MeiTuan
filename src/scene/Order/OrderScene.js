@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, StatusBar, ListView, FlatList, TouchableOpacity, ScrollView, RefreshControl} from 'react-native';
+import RefreshListView, {RefreshState} from 'react-native-refresh-list-view';
+
+import {screen} from "../../common";
+import {Tip} from "../../widget/Text";
 
 /**
  * @ClassName : OrderScene
@@ -10,13 +14,21 @@ import {StyleSheet, View, Text, Image} from 'react-native';
  **/
 
 class OrderScene extends Component {
-    static navigationOptions = {
-        title: `OrderScene...`,
-    }
+    static navigationOptions = ({navigation}: any)=>({
+        headerTitle: (
+            <View style={styles.headerStyle}>
+                {/*<Text style={{fontSize: 18, color: '#333333'}}>订单</Text>*/}
+                <Tip style={{fontSize: 18}}>订单</Tip>
+            </View>
+        ),
+        headerStyle: {backgroundColor: 'white'},
+    })
     constructor(props) {
         super(props);
         this.state = {
-            title: OrderScene,
+            title: 'OrderScene...',
+            data: [],
+            RefreshState: RefreshState.Idle,
         };
     }
 
@@ -34,7 +46,18 @@ class OrderScene extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {},
+    headerStyle: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
+    itemContainer: {
+        flexDirection: 'row',
+    },
 });
 
 export default OrderScene;

@@ -1,5 +1,12 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import ScrollableTabView, {DefaultTabBar} from 'react-native-scrollable-tab-view';
+
+import {Paragraph} from "../../widget/Text";
+import Colors from "../../common/Colors";
+import {screen} from "../../common";
+import NearbyListScene from "./NearbyListScene";
+import api from "../../api";
 
 /**
  * @ClassName : NearbyScene
@@ -10,13 +17,27 @@ import {StyleSheet, View, Text, Image} from 'react-native';
  **/
 
 class NearbyScene extends Component {
-    static navigationOptions = {
-        title: `NearbyScene...`,
-    }
+    static navigationOptions = ({navigation}: any) => ({
+        headerLeft: (
+            <TouchableOpacity style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 10}}>
+                <Image style={{width: 13, height: 16}} source={require('../../img/public/icon_food_merchant_address.png')} />
+                <Text style={{fontSize: 15, color: '#333333'}}> 杭州 西湖</Text>
+            </TouchableOpacity>
+        ),
+        headerRight: (
+            <TouchableOpacity style={styles.searchBar}>
+                <Image source={require('../../img/home/search_icon.png')} style={styles.searchIcon} />
+                <Paragraph>找附近的吃喝玩乐</Paragraph>
+            </TouchableOpacity>
+        ),
+        headerStyle: {backgroundColor: 'white'},
+    })
+
     constructor(props) {
         super(props);
         this.state = {
             title: NearbyScene,
+            nearbyTabs: api.nearbyTabs,
         };
     }
 
@@ -24,17 +45,80 @@ class NearbyScene extends Component {
     }
 
     render() {
+        /*let titles = ['享美食', '住酒店', '爱玩乐', '全部'];
+        let types = [
+            ['热门', '面包甜点', '小吃快餐', '川菜', '日本料理', '韩国料理', '台湾菜', '东北菜'],
+            ['热门', '商务出行', '公寓民宿', '情侣专享', '高星特惠'],
+            ['热门', 'KTV', '足疗按摩', '洗浴汗蒸',  '电影院', '美发', '美甲'],
+            [],
+        ];*/
         return (
-            <View style={{flex: 1, justifyContent: "center", alignItems: "center"}}>
-                <Text>NearbyScene</Text>
-            </View>
+            <ScrollableTabView
+                style={styles.container}
+                tabBarBackgroundColor='white'
+
+                tabBarActiveTextColor={Colors.pink}
+                tabBarInactiveTextColor='#555555'
+                tabBarTextStyle={styles.tabBarText}
+                tabBarUnderlineStyle={styles.tabBarUnderline}
+                >
+                {
+                    /*titles.map((title, i)=>{
+                        return(
+                            <NearbyListScene
+                                tabLabel={titles[i]}
+                                key={i}
+                                types={types[i]}
+                                navigation={this.props.navigation}
+                            />
+                        );
+                    })*/
+                    this.state.nearbyTabs.map((data, i)=>{
+                        return(
+                            <NearbyListScene
+                                tabLabel={data.title}
+                                key={i}
+                                types={data.type}
+                                navigation={this.props.navigation}
+                            />
+                        );
+                    })
+                }
+            </ScrollableTabView>
         );
     }
 
 }
 
 const styles = StyleSheet.create({
-    container: {},
+    container: {
+        flex: 1,
+        backgroundColor: Colors.paper,
+    },
+    searchBar: {
+        width: screen.width * 0.65,
+        height: 30,
+        borderRadius: 19,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#eeeeee',
+        //alignSelf: 'flex-end',
+        marginRight: 20,
+    },
+    searchIcon: {
+        width: 20,
+        height: 20,
+        margin: 5,
+    },
+    tabBarText: {
+        fontSize: 14,
+        marginTop: 13,
+    },
+    tabBarUnderline: {
+        //backgroundColor: '#FE566D',
+        backgroundColor: Colors.pink,
+    },
 });
 
 export default NearbyScene;
