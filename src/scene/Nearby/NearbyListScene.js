@@ -67,6 +67,20 @@ class NearbyListScene extends Component {
     }
 
     requestData = async ()=>{
+        /*this.setState({
+            typeIndex: index ? index: 0,
+        });*/
+
+        /*Promise.resolve()
+            .then(()=>{
+                this.setState({
+                    typeIndex: index ? index: 0,
+                });
+            }).then(()=>{
+                console.warn("index: " + index + " ,typeIndex: " + this.state.typeIndex);
+            }).catch((error)=>{
+                console.log(`${this.state.title}_renderHeader: ` + error);
+            });*/
         var url = api.recommend;
         let response = await fetch(url);
         let json = await response.json();
@@ -91,20 +105,69 @@ class NearbyListScene extends Component {
         return dataList;
     }
 
+    _onSelected = async (index)=>{
+        try {
+            if (index != this.state.typeIndex){
+                this.setState({
+                    refreshState: RefreshState.HeaderRefreshing,
+                });
+                //TODO: 去掉await,换成let dataList = this.requestData() 就会报错:Tried to get frame for out of range index NaN
+                let dataList = await this.requestData();
+
+                this.setState({
+                    typeIndex: index,
+                    data: dataList,
+                    refreshState: RefreshState.Idle,
+                })
+            }
+        } catch (error) {
+            this.setState({
+                refreshState: RefreshState.Failure,
+            })
+        }
+        //下面这种方式(去掉await)会报错
+        /*if (index != this.state.typeIndex){
+            this.setState({
+                typeIndex: index,
+                refreshState: RefreshState.HeaderRefreshing
+            });
+            let dataList = this.requestData();
+            this.setState({
+                data: dataList,
+                refreshState: RefreshState.Idle,
+            });
+        }*/
+    }
+
     renderHeader = ()=>{
         return (
             <NearbyHeaderView
                 titles={this.props.types}
                 selectedIndex={this.state.typeIndex}
                 onSelected={
-                    (index)=>{
+                    this._onSelected
+                    /*(index)=>{
                         if (index != this.state.typeIndex){
+                            /!*Promise.resolve()
+                                .then(()=>{
+                                    this.setState({
+                                        typeIndex: index,
+                                    });
+                                    this.requestData();
+                                }).then(()=>{
+                                    console.warn("index: " + index + " ,typeIndex: " + this.state.typeIndex);
+                                }).catch((error)=>{
+                                    console.log(`${this.state.title}_renderHeader: ` + error);
+                                });*!/
                             this.setState({
                                 typeIndex: index,
                             });
-                            this.requestData();
+                            var list = this.requestData();
+                            this.setState({
+                                data: list,
+                            });
                         }
-                    }
+                    }*/
                 }
             />
         );

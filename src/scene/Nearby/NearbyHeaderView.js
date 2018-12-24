@@ -24,6 +24,7 @@ class NearbyHeaderView extends Component {
     }
 
     render() {
+        let {onSelected} = this.props;
         return (
             <View style={styles.container}>
                 {
@@ -32,7 +33,7 @@ class NearbyHeaderView extends Component {
                             <TouchableOpacity
                                 key={i}
                                 style={[{backgroundColor: this.props.selectedIndex==i ? `${Colors.pink}` : `${Colors.white}`}, styles.item]}
-                                onPress={()=>this.props.onSelected(i)}
+                                onPress={()=> onSelected && onSelected(i)}
                             >
                                 <Paragraph style={{color: this.props.selectedIndex == i ? 'white' : '#555555'}}>
                                     {title}
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 15,
-        borderWidth: screen.onePixel * 2,
+        borderWidth: screen.onePixel * 3,
         borderColor: Colors.border,
     },
 });

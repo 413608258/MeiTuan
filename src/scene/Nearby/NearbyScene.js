@@ -76,6 +76,7 @@ class NearbyScene extends Component {
                     this.state.nearbyTabs.map((data, i)=>{
                         return(
                             <NearbyListScene
+                                //用tabLabel指定ScrollableTabView 中Tab名称
                                 tabLabel={data.title}
                                 key={i}
                                 types={data.type}

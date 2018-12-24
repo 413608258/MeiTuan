@@ -20,9 +20,13 @@ class OrderMenuItem extends Component {
     }
 
     render() {
+        let {onMenuSelected} = this.props;
         return (
             <TouchableOpacity style={styles.container}
-                 onPress={this.props.onPress}
+                 onPress={() => {
+                     onMenuSelected && onMenuSelected(this.props.title);
+                 }}
+                 //onPress={this.props.onMenuSelected(this.props.title)}
                 >
                 <Image source={this.props.icon} resizeMode='contain' style={styles.icon}/>
                 <Heading3>
