@@ -22,8 +22,8 @@ const Colors = {
     cyan: '#37ABF9',
 
     primary: '#06C1AE',
-    //border: '#e0e0e0',
-    border: '#E92064',
+    border: '#e0e0e0',
+    //border: '#E92064',
     paper: '#f3f3f3',
     //paper: '#E92064',
 

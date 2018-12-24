@@ -24,9 +24,14 @@ class DetailCell extends Component {
 
     render() {
         let icon = this.props.image && <Image style={styles.icon} source={this.props.image}/>
+        let {onSelected} = this.props;
         return (
             <View style={styles.container}>
-                <TouchableOpacity>
+                <TouchableOpacity
+                    onPress={()=>{
+                        onSelected && onSelected(this.props.title)
+                    }}
+                    >
                     <View style={[styles.content, this.props.style]}>
                         {icon}
                         <Heading3>{this.props.title}</Heading3>

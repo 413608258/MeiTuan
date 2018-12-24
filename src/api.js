@@ -2,9 +2,10 @@
  * Copyright (c) 2017-present, Liu Jinyong
  * All rights reserved.
  *
- * https://github.com/huanxsd/MeiTuan  
+ * https://github.com/huanxsd/MeiTuan
  * @flow
  */
+import Util from "./common/Util";
 
 
 export default {
@@ -53,6 +54,26 @@ export default {
             title: '全部',
             type: [],
         },
+    ],
+    //"我的"页面
+    mineData: [
+        [
+            {title: '我的钱包', subtitle: '办信用卡', image: require('./img/mine/icon_mine_wallet.png')},
+            {title: '余额', subtitle: `￥${Util.numberFormat(95872385)}`, image: require('./img/mine/icon_mine_balance.png')},
+            {title: '抵用券', subtitle: '63', image: require('./img/mine/icon_mine_voucher.png')},
+            {title: '会员卡', subtitle: '2', image: require('./img/mine/icon_mine_membercard.png')}
+        ],
+        [
+            {title: '好友去哪', image: require('./img/mine/icon_mine_friends.png')},
+            {title: '我的评价', image: require('./img/mine/icon_mine_comment.png')},
+            {title: '我的收藏', image: require('./img/mine/icon_mine_collection.png')},
+            {title: '会员中心', subtitle: 'v15', image: require('./img/mine/icon_mine_membercenter.png')},
+            {title: '积分商城', subtitle: '好礼已上线', image: require('./img/mine/icon_mine_member.png')}
+        ],
+        [
+            {title: '客服中心', image: require('./img/mine/icon_mine_customerService.png')},
+            {title: '关于美团', subtitle: '我要合作', image: require('./img/mine/icon_mine_aboutmeituan.png')}
+        ]
     ],
 
 }

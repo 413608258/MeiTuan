@@ -20,6 +20,7 @@ import GroupPurchaseCell from "./GroupPurchaseCell";
 import NavigationItem from "../../widget/NavigationItem";
 import Button from "../../widget/Button";
 import Separator from "../../widget/Separator";
+import Entypo from "react-native-vector-icons/AntDesign";
 
 /**
  * @ClassName : GroupPurchaseScene
@@ -39,6 +40,21 @@ class GroupPurchaseScene extends Component {
             </View>
         ),
         headerStyle: {backgroundColor: 'white'},
+        headerLeft: (
+            <TouchableOpacity
+                onPress={()=>{
+                    //navigation.navigate('Home');
+                    navigation.goBack();
+                }}
+                >
+                <Entypo
+                    //name={'chevron-thin-left'}
+                    name={'left'}
+                    size={27}
+                    color={Colors.primary}
+                />
+            </TouchableOpacity>
+        ),
         headerRight: (
             <NavigationItem
                 icon = {require('../../img/public/icon_navigation_item_share.png')}
