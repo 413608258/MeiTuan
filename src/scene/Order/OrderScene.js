@@ -89,7 +89,7 @@ class OrderScene extends Component {
     }
 
     keyExtractor = (item: Object, index: number) => {
-        return item.id
+        return item.id.toString();
     }
 
     renderHeader = () => {

@@ -7,7 +7,7 @@
  */
 
 import React from 'react'
-import ReactNative, {StyleSheet, Dimensions, Text} from 'react-native'
+import ReactNative, {StyleSheet, Dimensions, Text, TextInput} from 'react-native'
 import Colors from "../common/Colors";
 
 export function Heading1({style, ...props}: Object) {

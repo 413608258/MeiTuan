@@ -172,8 +172,8 @@ class GroupPurchaseScene extends Component {
         }
     }
 
-    keyExtractor = (item: Object, index: number)=>{
-        return item.id;
+    keyExtractor = (item: Object, index)=>{
+        return index.toString();
     }
 
     renderHeader = ()=>{

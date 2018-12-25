@@ -193,7 +193,7 @@ class NearbyListScene extends Component {
                 data={this.state.data}
                 ListHeaderComponent={this.renderHeader}
                 renderItem={this.renderCell}
-                keyExtractor={(item, index) => index}
+                keyExtractor={(item, index) => index.toString()}
                 refreshState={this.state.refreshState}
                 onHeaderRefresh={this.requestFirstPage}
                 onFooterRefresh={this.requestNextPage}

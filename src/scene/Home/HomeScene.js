@@ -1,5 +1,5 @@
 import React, { Component } from 'react'; 
-import {StyleSheet, View, Text, Image, TouchableOpacity, FlatList, StatusBar} from 'react-native';
+import {StyleSheet, View, Text, Image, TouchableOpacity, FlatList, StatusBar, TextInput} from 'react-native';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Colors from "../../common/Colors";
 import {Heading3, Paragraph} from "../../widget/Text";
@@ -27,6 +27,7 @@ class HomeScene extends Component {
            <TouchableOpacity style={styles.searchBar}>
                <Image source={require('../../img/home/search_icon.png')} style={styles.searchIcon}/>
                <Paragraph>一点点</Paragraph>
+               {/*<TextInput style={{fontSize:10, color: '#777777'}} value='一点点'></TextInput>*/}
            </TouchableOpacity>
        ),
         headerRight: (
@@ -167,7 +168,7 @@ class HomeScene extends Component {
     }
 
     keyExtractor = (item: Object, index: number) => {
-        return item.id;
+        return index.toString();
     }
 
     renderHeader = ()=>{

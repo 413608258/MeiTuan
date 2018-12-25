@@ -36,7 +36,7 @@ class HomeMenuView extends Component {
                     title={info.title}
                     icon={info.icon}
                     onPress={() => {
-                        onMenuSelected && onMenuSelected(`${i}：${info.title}`);
+                        onMenuSelected && onMenuSelected(i);
                     }}
                 />
             )
