@@ -33,22 +33,16 @@ class HomeScene extends Component {
         headerRight: (
             <NavigationItem
                 icon={require('../../img/mine/icon_navigation_item_message_white.png')}
-                onPress={
-                    ()=>{
-
-                    }
-                }
+                onPress={()=>{
+                }}
             />
         ),
         headerLeft: (
             <NavigationItem
                 title={'杭州'}
                 titleStyle={{color: 'white'}}
-                onPress={
-                    ()=>{
-
-                    }
-                }
+                onPress={()=>{
+                }}
             />
         ),
         headerStyle: {backgroundColor: Colors.primary},
@@ -88,7 +82,11 @@ class HomeScene extends Component {
         super(props);
         this.state = {
             title: "HomeScene",
+            //HomeMenuView数据
+            menuInfo: api.menuInfo,
+            //HomeGridView数据
             discounts: [],
+            //FlatList数据
             dataList: [],
             refreshing: false,
         };
@@ -174,7 +172,7 @@ class HomeScene extends Component {
     renderHeader = ()=>{
         return (
             <View>
-                <HomeMenuView menuInfos={api.menuInfo} onMenuSelected={this.onMenuSelected} />
+                <HomeMenuView menuInfos={this.state.menuInfo} onMenuSelected={this.onMenuSelected} />
                 <SpacingView />
                 <HomeGridView infos={this.state.discounts} onGridSelected={(this.onGridSelected)} />
                 <SpacingView />

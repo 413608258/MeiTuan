@@ -14,60 +14,6 @@ var Util = {
         onePixel: 1 / PixelRatio.get(),
         statusBarHeight: (Platform.OS === 'ios' ? 20 : 0)
     },
-    //总投资状态相关定义(Status)
-    InvestStatus: {
-        1: {
-            Status: "申购成功",
-            USD: "申购金额(USD)：",
-        },
-        3: {
-            Status: "赎回中",
-            USD: "赎回金额(USD)：",
-        },
-        4: {
-            Status: "已赎回",
-            USD: "赎回金额(USD)：",
-        },
-    },
-    //分红详情状态相关(IsPut)
-    DividendStatus: {
-        0: {
-            IsPut: "待分红",
-            Display: "flex",//待分红显示份额 num
-        },
-        1: {
-            IsPut: "分红成功",
-            Display: "none",//分红成功不显示份额 num
-        },
-    },
-    /**
-     * "待确认投资/申购" 相关状态定义("我的">"待确认投资")
-     */
-    PurchaseStatus: {
-        //status字段 (1: 申购成功(暂时未使用), 2: 未上传付款凭证, 3: 已上传付款凭证,)
-        //status:2  未上传付款凭证
-        2: {
-            //confirm 字段
-            0: "待上传凭证",
-            2: "已失效", // 时间超过72小时,则申购失效
-        },
-        //status:3  已上传付款凭证
-        3: {
-            //confirm 后台是否确认(0: 待确认, 1: 确认收到, 2: 确认未收到)
-            0: "待确认投资",
-            1: "正在加持",
-            2: "投资失败",
-        },
-    },
-    Fund: {
-        // fundid 基金ID
-        1: "安心美元基金1号",
-        2: "安心美元基金2号",
-        3: "智盈美元宝",
-        4: "安心美元基金3号",
-    },
-    // MD5 加密 KEY
-    MD5_ENCRYPT_KEY: "SHJrhw*^&@#G",
     /*
     * Get请求
     * successCallback 请求成功的回调函数

@@ -1,16 +1,15 @@
-import {createStackNavigator, createAppContainer, createBottomTabNavigator} from 'react-navigation';
+import {createStackNavigator, createAppContainer, } from 'react-navigation';
 
 import HomeScene from "./scene/Home/HomeScene";
 import NearbyScene from "./scene/Nearby/NearbyScene";
 import OrderScene from "./scene/Order/OrderScene";
 import MineScene from "./scene/Mine/MineScene";
 import RootScene from "./RootScene";
-import Colors from "./common/Colors";
 import React from "react";
 import GroupPurchaseScene from "./scene/GroupPurchase/GroupPurchaseScene";
 import WebScene from "./widget/WebScene";
 
-const AppNavigator1 = createStackNavigator({
+const AppNavigator = createStackNavigator({
     Index: {
         screen: RootScene,
         navigationOptions:{
@@ -21,18 +20,10 @@ const AppNavigator1 = createStackNavigator({
     },
     GroupPurchase: {screen: GroupPurchaseScene},
     Web: {screen: WebScene},
-    Home: {
-        screen: HomeScene,
-    },
-    Nearby: {
-        screen: NearbyScene,
-    },
-    Order: {
-        screen: OrderScene,
-    },
-    Mine: {
-        screen: MineScene,
-    },
+    Home: {screen: HomeScene},
+    Nearby: {screen: NearbyScene},
+    Order: {screen: OrderScene},
+    Mine: {screen: MineScene},
 },{
     /*initialRouteName:'Index',
     /!* 主屏幕的标题配置现在在这里 *!/
@@ -54,7 +45,5 @@ const AppNavigator1 = createStackNavigator({
     initialRouteName:'Index',
 });
 
-const Rooter = createAppContainer(AppNavigator1);
-//const RootStack = createAppContainer(AppNavigator);
-
+const Rooter = createAppContainer(AppNavigator);
 export default Rooter;
