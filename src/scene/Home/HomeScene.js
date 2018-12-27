@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import {StyleSheet, View, Text, Image, TouchableOpacity, FlatList, StatusBar, TextInput} from 'react-native';
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Colors from "../../common/Colors";
-import {Heading3, Paragraph} from "../../widget/Text";
-import NavigationItem from "../../widget/NavigationItem";
 import Util from "../../common/Util";
 import GroupPurchaseCell from "../GroupPurchase/GroupPurchaseCell";
 import api from "../../api";
 import HomeMenuView from "./HomeMenuView";
-import SpacingView from "../../widget/SpacingView";
+import {Heading3, Paragraph} from "../../widget/Text";
+//import NavigationItem from "../../widget/NavigationItem";
+//import SpacingView from "../../widget/SpacingView";
+import {NavigationItem, SpacingView} from "../../widget";
 import HomeGridView from "./HomeGridView";
 /**
  * @ClassName : HomeScene
@@ -30,17 +31,17 @@ class HomeScene extends Component {
                {/*<TextInput style={{fontSize:10, color: '#777777'}} value='一点点'></TextInput>*/}
            </TouchableOpacity>
        ),
-        headerRight: (
-            <NavigationItem
-                icon={require('../../img/mine/icon_navigation_item_message_white.png')}
-                onPress={()=>{
-                }}
-            />
-        ),
         headerLeft: (
             <NavigationItem
                 title={'杭州'}
                 titleStyle={{color: 'white'}}
+                onPress={()=>{
+                }}
+            />
+        ),
+        headerRight: (
+            <NavigationItem
+                icon={require('../../img/mine/icon_navigation_item_message_white.png')}
                 onPress={()=>{
                 }}
             />
@@ -141,7 +142,7 @@ class HomeScene extends Component {
             let response = await fetch(url);
             let json = await response.json();
 
-            console.log("discounts: " + JSON.stringify(json));
+            console.log(`${this.state.title}_requestDiscount discounts: ` + JSON.stringify(json));
 
             this.setState({
                 discounts: json.data,

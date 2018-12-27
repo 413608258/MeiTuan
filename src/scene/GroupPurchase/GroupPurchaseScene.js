@@ -11,15 +11,15 @@ import {
     FlatList
 } from 'react-native';
 import RefreshListView, {RefreshState} from "react-native-refresh-list-view";
-//import {Button, Separator, SpacingView} from "../../widget";
 import {recommendUrlWithId, groupPurchaseDetailWithId} from "../../api";
 import {screen} from "../../common";
 import Colors from "../../common/Colors";
 import {Heading1, Heading2, Heading3, Paragraph, Tip} from "../../widget/Text";
 import GroupPurchaseCell from "./GroupPurchaseCell";
-import NavigationItem from "../../widget/NavigationItem";
-import Button from "../../widget/Button";
-import Separator from "../../widget/Separator";
+//import NavigationItem from "../../widget/NavigationItem";
+//import Button from "../../widget/Button";
+//import Separator from "../../widget/Separator";
+import {NavigationItem, Button, Separator} from "../../widget";
 import Entypo from "react-native-vector-icons/AntDesign";
 
 /**
@@ -58,11 +58,8 @@ class GroupPurchaseScene extends Component {
         headerRight: (
             <NavigationItem
                 icon = {require('../../img/public/icon_navigation_item_share.png')}
-                onPress = {
-                    ()=>{
-
-                    }
-                }
+                onPress = {()=>{
+                }}
             />
         ),
     });

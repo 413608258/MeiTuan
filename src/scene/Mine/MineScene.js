@@ -3,10 +3,11 @@ import {StyleSheet, View, Text, Image, StatusBar, TouchableOpacity, ScrollView, 
 
 import {Heading2, Heading3, Paragraph} from "../../widget/Text";
 import {screen} from "../../common";
-import NavigationItem from "../../widget/NavigationItem";
 import Colors from "../../common/Colors";
-import SpacingView from "../../widget/SpacingView";
-import DetailCell from "../../widget/DetailCell";
+//import DetailCell from "../../widget/DetailCell";
+//import NavigationItem from "../../widget/NavigationItem";
+//import SpacingView from "../../widget/SpacingView";
+import {DetailCell, NavigationItem, SpacingView} from "../../widget";
 import api from "../../api";
 
 /**

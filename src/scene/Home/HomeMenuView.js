@@ -18,7 +18,7 @@ class HomeMenuView extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            title: 'HomeMenuView...',
+            title: 'HomeMenuView',
             currentPage: 0,
         };
     }
@@ -100,7 +100,7 @@ class HomeMenuView extends Component {
         let x = e.nativeEvent.contentOffset.x;
         let currentPage = Math.round(x / screen.width);
 
-        console.log('onScroll  ' + e.nativeEvent.contentOffset.x + '  page ' + currentPage + '  current ' + this.state.currentPage);
+        console.log(`${this.state.title}_onScroll: X: ` + e.nativeEvent.contentOffset.x + '  page ' + currentPage + '  current ' + this.state.currentPage);
         if (this.state.currentPage != currentPage) {
             this.setState({
                 currentPage: currentPage,
